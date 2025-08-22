@@ -1,6 +1,11 @@
+
 @font-face {
     font-family: 'PT Root UI';
-    src: url('https://api.paratype.com/api/editions/ofl/download/52132') format('woff2');
+    src: url('~/assets/fonts/pt-root-ui_regular.eot');
+    src: url('~/assets/fonts/pt-root-ui_regular.eot?#iefix') format('embedded-opentype'),
+    url('~/assets/fonts/pt-root-ui_regular.woff2') format('woff2'),
+    url('~/assets/fonts/pt-root-ui_regular.woff') format('woff'),
+    url('~/assets/fonts/pt-root-ui_regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -8,7 +13,11 @@
 
 @font-face {
     font-family: 'PT Root UI';
-    src: url('https://api.paratype.com/api/editions/ofl/download/52133') format('woff2');
+    src: url('~/assets/fonts/pt-root-ui_medium.eot');
+    src: url('~/assets/fonts/pt-root-ui_medium.eot?#iefix') format('embedded-opentype'),
+    url('~/assets/fonts/pt-root-ui_medium.woff2') format('woff2'),
+    url('~/assets/fonts/pt-root-ui_medium.woff') format('woff'),
+    url('~/assets/fonts/pt-root-ui_medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -16,7 +25,11 @@
 
 @font-face {
     font-family: 'PT Root UI';
-    src: url('https://api.paratype.com/api/editions/ofl/download/52134') format('woff2');
+    src: url('~/assets/fonts/pt-root-ui_bold.eot');
+    src: url('~/assets/fonts/pt-root-ui_bold.eot?#iefix') format('embedded-opentype'),
+    url('~/assets/fonts/pt-root-ui_bold.woff2') format('woff2'),
+    url('~/assets/fonts/pt-root-ui_bold.woff') format('woff'),
+    url('~/assets/fonts/pt-root-ui_bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;

@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import type { Apartment } from '~/types/apartment'
+import ApartmentRow from "~/components/ui/table/ApartmentRow.vue"
 
 interface Props {
   apartments: Apartment[]
@@ -19,3 +20,7 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<style lang="scss" scoped>
+
+</style>

@@ -11,31 +11,44 @@
         label="S, м²"
         :current-field="sortField"
         :ascending="sortAscending"
-        @click="$emit('sort', 'area')"
+        @click="handleSort('area')"
     />
     <SortableHeader
         field="floor"
         label="Этаж"
         :current-field="sortField"
         :ascending="sortAscending"
-        @click="$emit('sort', 'floor')"
+        @click="handleSort('floor')"
     />
     <SortableHeader
         field="price"
         label="Цена, ₽"
         :current-field="sortField"
         :ascending="sortAscending"
-        @click="$emit('sort', 'price')"
+        @click="handleSort('price')"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import SortableHeader from "~/components/ui/table/SortableHeader.vue"
 interface Props {
   sortField: string
   sortAscending: boolean
 }
 
-defineProps<Props>()
-defineEmits(['sort'])
+interface Emits {
+  (e: 'sort', field: string): void
+}
+
+const props = defineProps<Props>()
+const emit = defineEmits<Emits>()
+
+const handleSort = (field: string) => {
+  emit('sort', field)
+}
 </script>
+
+<style lang="scss" scoped>
+
+</style>

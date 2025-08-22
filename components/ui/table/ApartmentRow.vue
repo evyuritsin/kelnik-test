@@ -46,3 +46,7 @@ const getImageUrl = (photoPath: string): string => {
   return `/images/plans/${photoPath}`
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

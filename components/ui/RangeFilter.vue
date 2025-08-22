@@ -16,8 +16,8 @@
         <USlider
             class="apartments-filter__slider-component"
             v-model="localRange"
-            :min="min"
-            :max="max"
+            :min="range.min"
+            :max="range.max"
             :step="step"
             range
             size="sm"
@@ -29,6 +29,8 @@
 </template>
 
 <script setup lang="ts">
+import { debounce } from 'lodash-es'
+
 interface Props {
   label: string
   range: { min: number; max: number }
@@ -49,14 +51,14 @@ const emit = defineEmits<Emits>()
 
 const localRange = ref<[number, number]>([...props.filterRange])
 
+// Глубокое отслеживание изменений пропсов
 watch(() => props.filterRange, (newValue) => {
   if (newValue[0] !== localRange.value[0] || newValue[1] !== localRange.value[1]) {
     localRange.value = [...newValue]
   }
-})
+}, { deep: true, immediate: true })
 
-const { min, max } = toRefs(props.range)
-
+// Убираем toRefs() и используем props.range напрямую
 const formatValue = (value: number): string => {
   if (props.formatFunction) {
     return props.formatFunction(value)
@@ -64,9 +66,19 @@ const formatValue = (value: number): string => {
   return value.toString()
 }
 
-const handleRangeChange = (value: [number, number]) => {
+// Debounce для предотвращения множественных вызовов
+const debouncedEmit = debounce((value: [number, number]) => {
   emit('update:filter-range', value)
+}, 300)
+
+const handleRangeChange = (value: [number, number]) => {
+  debouncedEmit(value)
 }
+
+// Очистка при unmount
+onUnmounted(() => {
+  debouncedEmit.cancel()
+})
 </script>
 
 <style lang="scss" scoped>

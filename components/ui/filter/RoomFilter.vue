@@ -3,12 +3,13 @@
       label="Количество комнат"
       :options="roomOptions"
       :selected-values="selectedRooms"
-      @update:selected-values="$emit('update:selected-rooms', $event)"
+      @update:selected-values="handleSelectionChange"
   />
 </template>
 
 <script setup lang="ts">
 import ButtonGroup from '~/components/ui/ButtonGroup.vue'
+
 interface RoomOption {
   value: number
   label: string
@@ -24,6 +25,10 @@ interface Emits {
   (e: 'update:selected-rooms', value: number[]): void
 }
 
-defineProps<Props>()
-defineEmits<Emits>()
+const props = defineProps<Props>()
+const emit = defineEmits<Emits>()
+
+const handleSelectionChange = (value: number[]) => {
+  emit('update:selected-rooms', value)
+}
 </script>

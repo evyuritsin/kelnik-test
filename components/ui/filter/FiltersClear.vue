@@ -14,22 +14,5 @@ defineEmits(['click'])
 </script>
 
 <style lang="scss" scoped>
-.apartments-filter__clear {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 32px;
-  padding: 5px 16px 7px;
-  cursor: pointer;
-  color: #000;
-  font-family: 'PT Root UI', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  transition: color 0.3s ease;
 
-  &:hover {
-    color: #3eb57c;
-  }
-}
 </style>
